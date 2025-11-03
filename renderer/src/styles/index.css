@@ -2,10 +2,10 @@
 
 /* CSS Variables - can be overridden by themes */
 :root {
-  /* Typography */
-  --nova-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  --nova-heading-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  --nova-code-font-family: 'Fira Code', 'Courier New', Courier, monospace;
+  /* Typography - Modern & Beautiful */
+  --nova-font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --nova-heading-font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --nova-code-font-family: 'Fira Code', 'SF Mono', 'Consolas', monospace;
   --nova-base-font-size: 16px;
   --nova-line-height: 1.6;
 
@@ -95,39 +95,50 @@
 .nova-heading {
   font-family: var(--nova-heading-font-family);
   font-weight: 700;
-  line-height: 1.3;
+  line-height: 1.25;
   margin-top: 2.5rem;
   margin-bottom: 1rem;
   color: var(--nova-color-text);
+  letter-spacing: -0.02em;
 }
 
 .nova-h1 {
-  font-size: 2.25rem;
+  font-size: 2.5rem;
   margin-top: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
 }
 
 .nova-h2 {
-  font-size: 1.875rem;
+  font-size: 2rem;
   margin-top: 2.5rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--nova-color-gray-200);
+  font-weight: 700;
 }
 
 .nova-h3 {
-  font-size: 1.5rem;
+  font-size: 1.625rem;
+  font-weight: 700;
+  line-height: 1.3;
 }
 
 .nova-h4 {
-  font-size: 1.25rem;
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.4;
 }
 
 .nova-h5 {
   font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.5;
 }
 
 .nova-h6 {
   font-size: 1rem;
   font-weight: 600;
+  line-height: 1.5;
 }
 
 /* Paragraphs */
