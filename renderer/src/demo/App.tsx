@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { NovaRenderer } from '../components/NovaRenderer'
-import { NovaEditor } from '../components/NovaEditor'
+import { BlockEditor } from '../components/editor/BlockEditor'
 import { NovaDocument } from '../types'
 import '../styles/index.css'
 import 'highlight.js/styles/github-dark.css'
@@ -97,7 +97,7 @@ function App() {
         {error && <div className="demo-error">{error}</div>}
         {document && !loading && !error && (
           isEditing ? (
-            <NovaEditor
+            <BlockEditor
               document={document}
               onSave={handleSave}
               onCancel={handleCancelEdit}

@@ -465,9 +465,9 @@
     {
       "id": "img1",
       "type": "image",
-      "src": "https://via.placeholder.com/800x400/0066CC/FFFFFF?text=Nova+Document+Format",
-      "alt": "Nova logo and branding placeholder",
-      "caption": "Figure 1: Nova Document Format - Beautiful, Editable, AI-Ready",
+      "src": "/fruit-vegetables.png",
+      "alt": "Colorful arrangement of fruits and vegetables",
+      "caption": "Figure 1: Beautiful arrangement of fresh fruits and vegetables",
       "width": "100%",
       "style": {
         "align": "center",
