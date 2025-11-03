@@ -1,0 +1,606 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://nova-format.org/schema/v1.0.0",
+  "title": "Nova Document Format",
+  "description": "A modern, semantic document format that is beautiful, editable, and AI-ready",
+  "type": "object",
+  "required": ["version", "metadata", "content"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Nova format version",
+      "const": "1.0.0"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Document metadata",
+      "required": ["title"],
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Document title"
+        },
+        "description": {
+          "type": "string",
+          "description": "Brief document description"
+        },
+        "author": {
+          "type": "string",
+          "description": "Document author"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp (ISO 8601)"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last update timestamp (ISO 8601)"
+        },
+        "tags": {
+          "type": "array",
+          "description": "Document tags for categorization",
+          "items": {
+            "type": "string"
+          }
+        },
+        "language": {
+          "type": "string",
+          "description": "Primary document language (ISO 639-1 code)",
+          "default": "en"
+        }
+      }
+    },
+    "theme": {
+      "type": "object",
+      "description": "Document-wide theme settings",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Theme name",
+          "enum": ["default", "minimal", "academic", "modern", "classic"],
+          "default": "default"
+        },
+        "typography": {
+          "type": "object",
+          "properties": {
+            "fontFamily": {
+              "type": "string",
+              "description": "Primary font family",
+              "default": "Inter"
+            },
+            "headingFontFamily": {
+              "type": "string",
+              "description": "Heading font family",
+              "default": "Inter"
+            },
+            "codeFontFamily": {
+              "type": "string",
+              "description": "Code font family",
+              "default": "Fira Code"
+            },
+            "baseFontSize": {
+              "type": "number",
+              "description": "Base font size in pixels",
+              "default": 16,
+              "minimum": 12,
+              "maximum": 24
+            },
+            "lineHeight": {
+              "type": "number",
+              "description": "Base line height multiplier",
+              "default": 1.6,
+              "minimum": 1.2,
+              "maximum": 2.5
+            }
+          }
+        },
+        "colors": {
+          "type": "object",
+          "properties": {
+            "primary": {
+              "type": "string",
+              "description": "Primary brand color (hex)",
+              "pattern": "^#[0-9A-Fa-f]{6}$"
+            },
+            "background": {
+              "type": "string",
+              "description": "Background color (hex)",
+              "pattern": "^#[0-9A-Fa-f]{6}$"
+            },
+            "text": {
+              "type": "string",
+              "description": "Text color (hex)",
+              "pattern": "^#[0-9A-Fa-f]{6}$"
+            },
+            "accent": {
+              "type": "string",
+              "description": "Accent color (hex)",
+              "pattern": "^#[0-9A-Fa-f]{6}$"
+            }
+          }
+        },
+        "spacing": {
+          "type": "object",
+          "properties": {
+            "paragraphSpacing": {
+              "type": "number",
+              "description": "Space between paragraphs in rem",
+              "default": 1.5
+            },
+            "sectionSpacing": {
+              "type": "number",
+              "description": "Space between sections in rem",
+              "default": 3
+            }
+          }
+        }
+      }
+    },
+    "content": {
+      "type": "array",
+      "description": "Document content blocks",
+      "items": {
+        "$ref": "#/definitions/Block"
+      }
+    }
+  },
+  "definitions": {
+    "Block": {
+      "type": "object",
+      "required": ["id", "type"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique block identifier"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "heading",
+            "paragraph",
+            "list",
+            "table",
+            "code",
+            "callout",
+            "image",
+            "divider",
+            "layout",
+            "quote",
+            "embed"
+          ]
+        }
+      },
+      "oneOf": [
+        { "$ref": "#/definitions/HeadingBlock" },
+        { "$ref": "#/definitions/ParagraphBlock" },
+        { "$ref": "#/definitions/ListBlock" },
+        { "$ref": "#/definitions/TableBlock" },
+        { "$ref": "#/definitions/CodeBlock" },
+        { "$ref": "#/definitions/CalloutBlock" },
+        { "$ref": "#/definitions/ImageBlock" },
+        { "$ref": "#/definitions/DividerBlock" },
+        { "$ref": "#/definitions/LayoutBlock" },
+        { "$ref": "#/definitions/QuoteBlock" },
+        { "$ref": "#/definitions/EmbedBlock" }
+      ]
+    },
+    "HeadingBlock": {
+      "type": "object",
+      "required": ["type", "level", "content"],
+      "properties": {
+        "type": {
+          "const": "heading"
+        },
+        "level": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 6,
+          "description": "Heading level (1-6)"
+        },
+        "content": {
+          "$ref": "#/definitions/RichText"
+        },
+        "anchor": {
+          "type": "string",
+          "description": "Optional anchor ID for linking"
+        },
+        "style": {
+          "type": "object",
+          "properties": {
+            "align": {
+              "type": "string",
+              "enum": ["left", "center", "right"],
+              "default": "left"
+            }
+          }
+        }
+      }
+    },
+    "ParagraphBlock": {
+      "type": "object",
+      "required": ["type", "content"],
+      "properties": {
+        "type": {
+          "const": "paragraph"
+        },
+        "content": {
+          "$ref": "#/definitions/RichText"
+        },
+        "style": {
+          "type": "object",
+          "properties": {
+            "align": {
+              "type": "string",
+              "enum": ["left", "center", "right", "justify"],
+              "default": "left"
+            },
+            "indent": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Indentation level"
+            }
+          }
+        }
+      }
+    },
+    "ListBlock": {
+      "type": "object",
+      "required": ["type", "listType", "items"],
+      "properties": {
+        "type": {
+          "const": "list"
+        },
+        "listType": {
+          "type": "string",
+          "enum": ["ordered", "unordered", "checklist"],
+          "description": "Type of list"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["content"],
+            "properties": {
+              "content": {
+                "$ref": "#/definitions/RichText"
+              },
+              "checked": {
+                "type": "boolean",
+                "description": "For checklist items"
+              },
+              "children": {
+                "type": "array",
+                "description": "Nested list items",
+                "items": {
+                  "$ref": "#/definitions/ListBlock"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "TableBlock": {
+      "type": "object",
+      "required": ["type", "rows"],
+      "properties": {
+        "type": {
+          "const": "table"
+        },
+        "caption": {
+          "type": "string",
+          "description": "Table caption"
+        },
+        "headers": {
+          "type": "array",
+          "description": "Header row cells",
+          "items": {
+            "$ref": "#/definitions/RichText"
+          }
+        },
+        "rows": {
+          "type": "array",
+          "description": "Table rows",
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/RichText"
+            }
+          }
+        },
+        "style": {
+          "type": "object",
+          "properties": {
+            "headerStyle": {
+              "type": "string",
+              "enum": ["bold", "background", "both"],
+              "default": "both"
+            },
+            "stripes": {
+              "type": "boolean",
+              "description": "Alternating row colors",
+              "default": false
+            },
+            "borders": {
+              "type": "string",
+              "enum": ["all", "horizontal", "none"],
+              "default": "all"
+            }
+          }
+        }
+      }
+    },
+    "CodeBlock": {
+      "type": "object",
+      "required": ["type", "code"],
+      "properties": {
+        "type": {
+          "const": "code"
+        },
+        "code": {
+          "type": "string",
+          "description": "Code content"
+        },
+        "language": {
+          "type": "string",
+          "description": "Programming language for syntax highlighting"
+        },
+        "caption": {
+          "type": "string",
+          "description": "Optional caption/filename"
+        },
+        "showLineNumbers": {
+          "type": "boolean",
+          "default": false
+        },
+        "highlightLines": {
+          "type": "array",
+          "description": "Line numbers to highlight",
+          "items": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "CalloutBlock": {
+      "type": "object",
+      "required": ["type", "content"],
+      "properties": {
+        "type": {
+          "const": "callout"
+        },
+        "calloutType": {
+          "type": "string",
+          "enum": ["info", "warning", "success", "error", "note"],
+          "default": "info"
+        },
+        "title": {
+          "type": "string",
+          "description": "Optional callout title"
+        },
+        "content": {
+          "$ref": "#/definitions/RichText"
+        },
+        "icon": {
+          "type": "string",
+          "description": "Optional emoji or icon"
+        }
+      }
+    },
+    "ImageBlock": {
+      "type": "object",
+      "required": ["type", "src"],
+      "properties": {
+        "type": {
+          "const": "image"
+        },
+        "src": {
+          "type": "string",
+          "description": "Image URL or base64 data URI"
+        },
+        "alt": {
+          "type": "string",
+          "description": "Alternative text for accessibility"
+        },
+        "caption": {
+          "type": "string",
+          "description": "Image caption"
+        },
+        "width": {
+          "type": ["number", "string"],
+          "description": "Image width (px or %)"
+        },
+        "height": {
+          "type": ["number", "string"],
+          "description": "Image height (px or %)"
+        },
+        "style": {
+          "type": "object",
+          "properties": {
+            "align": {
+              "type": "string",
+              "enum": ["left", "center", "right", "full"],
+              "default": "center"
+            },
+            "rounded": {
+              "type": "boolean",
+              "description": "Rounded corners",
+              "default": false
+            }
+          }
+        }
+      }
+    },
+    "DividerBlock": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "const": "divider"
+        },
+        "style": {
+          "type": "string",
+          "enum": ["solid", "dashed", "dotted", "thick"],
+          "default": "solid"
+        }
+      }
+    },
+    "LayoutBlock": {
+      "type": "object",
+      "required": ["type", "columns"],
+      "properties": {
+        "type": {
+          "const": "layout"
+        },
+        "columns": {
+          "type": "array",
+          "description": "Column content",
+          "minItems": 2,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": ["content"],
+            "properties": {
+              "width": {
+                "type": "string",
+                "description": "Column width (%, fr, or px)",
+                "default": "1fr"
+              },
+              "content": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Block"
+                }
+              }
+            }
+          }
+        },
+        "gap": {
+          "type": "number",
+          "description": "Gap between columns in rem",
+          "default": 2
+        }
+      }
+    },
+    "QuoteBlock": {
+      "type": "object",
+      "required": ["type", "content"],
+      "properties": {
+        "type": {
+          "const": "quote"
+        },
+        "content": {
+          "$ref": "#/definitions/RichText"
+        },
+        "author": {
+          "type": "string",
+          "description": "Quote author"
+        },
+        "source": {
+          "type": "string",
+          "description": "Quote source/citation"
+        }
+      }
+    },
+    "EmbedBlock": {
+      "type": "object",
+      "required": ["type", "url"],
+      "properties": {
+        "type": {
+          "const": "embed"
+        },
+        "url": {
+          "type": "string",
+          "description": "URL to embed (YouTube, Twitter, etc.)"
+        },
+        "embedType": {
+          "type": "string",
+          "enum": ["video", "tweet", "iframe", "audio"],
+          "description": "Type of embed"
+        },
+        "caption": {
+          "type": "string",
+          "description": "Embed caption"
+        },
+        "aspectRatio": {
+          "type": "string",
+          "description": "Aspect ratio (e.g., '16:9')",
+          "default": "16:9"
+        }
+      }
+    },
+    "RichText": {
+      "oneOf": [
+        {
+          "type": "string",
+          "description": "Plain text content"
+        },
+        {
+          "type": "array",
+          "description": "Array of text segments with formatting",
+          "items": {
+            "$ref": "#/definitions/TextSegment"
+          }
+        }
+      ]
+    },
+    "TextSegment": {
+      "type": "object",
+      "required": ["text"],
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "Text content"
+        },
+        "bold": {
+          "type": "boolean",
+          "default": false
+        },
+        "italic": {
+          "type": "boolean",
+          "default": false
+        },
+        "underline": {
+          "type": "boolean",
+          "default": false
+        },
+        "strikethrough": {
+          "type": "boolean",
+          "default": false
+        },
+        "code": {
+          "type": "boolean",
+          "description": "Inline code formatting",
+          "default": false
+        },
+        "color": {
+          "type": "string",
+          "description": "Text color (hex)",
+          "pattern": "^#[0-9A-Fa-f]{6}$"
+        },
+        "backgroundColor": {
+          "type": "string",
+          "description": "Background color (hex)",
+          "pattern": "^#[0-9A-Fa-f]{6}$"
+        },
+        "link": {
+          "type": "object",
+          "description": "Hyperlink properties",
+          "required": ["href"],
+          "properties": {
+            "href": {
+              "type": "string",
+              "description": "Link URL"
+            },
+            "title": {
+              "type": "string",
+              "description": "Link title (tooltip)"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,342 @@
+/* Demo App Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.demo-app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.demo-sidebar {
+  width: 300px;
+  background-color: #1F2937;
+  color: #F9FAFB;
+  padding: 2rem;
+  overflow-y: auto;
+  position: fixed;
+  height: 100vh;
+  left: 0;
+  top: 0;
+}
+
+.demo-sidebar-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #60A5FA;
+}
+
+.demo-sidebar-description {
+  font-size: 0.875rem;
+  color: #D1D5DB;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.demo-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.demo-nav-button {
+  background: transparent;
+  border: 1px solid #374151;
+  color: #F9FAFB;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.9375rem;
+}
+
+.demo-nav-button:hover {
+  background-color: #374151;
+  border-color: #4B5563;
+}
+
+.demo-nav-button.active {
+  background-color: #3B82F6;
+  border-color: #3B82F6;
+  font-weight: 600;
+}
+
+.demo-info {
+  padding-top: 2rem;
+  border-top: 1px solid #374151;
+}
+
+.demo-info h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #F9FAFB;
+}
+
+.demo-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.demo-info li {
+  font-size: 0.875rem;
+  color: #D1D5DB;
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.demo-info li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #10B981;
+  font-weight: bold;
+}
+
+.demo-main {
+  margin-left: 300px;
+  flex: 1;
+  background-color: #FFFFFF;
+  min-height: 100vh;
+}
+
+.demo-loading,
+.demo-error {
+  padding: 4rem 2rem;
+  text-align: center;
+  font-size: 1.125rem;
+}
+
+.demo-error {
+  color: #EF4444;
+}
+
+/* Edit Button */
+.demo-edit-button {
+  width: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  color: #FFFFFF;
+  padding: 0.875rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.demo-edit-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.demo-edit-button:active {
+  transform: translateY(0);
+}
+
+.demo-nav-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Nova Editor Styles */
+.nova-editor {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+}
+
+.nova-editor-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: #F9FAFB;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.nova-editor-toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nova-editor-toolbar-right {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.nova-editor-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1F2937;
+  margin: 0;
+}
+
+.nova-editor-error {
+  color: #EF4444;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.nova-editor-button {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.nova-editor-button-primary {
+  background: #3B82F6;
+  color: #FFFFFF;
+}
+
+.nova-editor-button-primary:hover:not(:disabled) {
+  background: #2563EB;
+}
+
+.nova-editor-button-secondary {
+  background: #FFFFFF;
+  color: #374151;
+  border: 1px solid #D1D5DB;
+}
+
+.nova-editor-button-secondary:hover:not(:disabled) {
+  background: #F9FAFB;
+  border-color: #9CA3AF;
+}
+
+.nova-editor-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.nova-editor-content {
+  flex: 1;
+  display: grid;
+  overflow: hidden;
+}
+
+.nova-editor-content.split-view {
+  grid-template-columns: 1fr 1fr;
+}
+
+.nova-editor-content.single-view {
+  grid-template-columns: 1fr;
+}
+
+.nova-editor-pane {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #E5E7EB;
+  overflow: hidden;
+}
+
+.nova-editor-pane:last-child {
+  border-right: none;
+}
+
+.nova-editor-pane-header {
+  padding: 1rem 1.5rem;
+  background: #F9FAFB;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.nova-editor-pane-header h3 {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #1F2937;
+  margin: 0 0 0.25rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.nova-editor-pane-info {
+  font-size: 0.75rem;
+  color: #6B7280;
+}
+
+.nova-editor-textarea {
+  flex: 1;
+  padding: 1.5rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  border: none;
+  outline: none;
+  resize: none;
+  background: #FFFFFF;
+  color: #1F2937;
+}
+
+.nova-editor-preview {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem;
+  background: #FFFFFF;
+}
+
+.nova-editor-preview-pane {
+  background: #F9FAFB;
+}
+
+.nova-editor-preview-error {
+  padding: 2rem;
+  color: #EF4444;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 1024px) {
+  .demo-app {
+    flex-direction: column;
+  }
+
+  .demo-sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  .demo-main {
+    margin-left: 0;
+  }
+
+  .nova-editor-content.split-view {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .nova-editor-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .nova-editor-toolbar-right {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .nova-editor-button {
+    flex: 1;
+  }
+}

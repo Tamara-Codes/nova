@@ -1,0 +1,650 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "title": "Nova Format Sample Document",
+    "description": "A comprehensive example showcasing all Nova block types and features",
+    "author": "Nova Team",
+    "createdAt": "2025-01-15T10:00:00Z",
+    "updatedAt": "2025-01-15T14:30:00Z",
+    "tags": ["example", "documentation", "showcase"],
+    "language": "en"
+  },
+  "theme": {
+    "name": "default",
+    "typography": {
+      "fontFamily": "Inter",
+      "headingFontFamily": "Inter",
+      "codeFontFamily": "Fira Code",
+      "baseFontSize": 16,
+      "lineHeight": 1.6
+    },
+    "colors": {
+      "primary": "#0066CC",
+      "background": "#FFFFFF",
+      "text": "#1A1A1A",
+      "accent": "#FF6B6B"
+    },
+    "spacing": {
+      "paragraphSpacing": 1.5,
+      "sectionSpacing": 3
+    }
+  },
+  "content": [
+    {
+      "id": "h1-main",
+      "type": "heading",
+      "level": 1,
+      "content": "Nova Format Sample Document",
+      "anchor": "introduction",
+      "style": {
+        "align": "left"
+      }
+    },
+    {
+      "id": "p1",
+      "type": "paragraph",
+      "content": "Welcome to the Nova document format! This sample document demonstrates all available block types and features. Nova is designed to be beautiful by default, fully editable, and AI-ready.",
+      "style": {
+        "align": "left",
+        "indent": 0
+      }
+    },
+    {
+      "id": "h2-headings",
+      "type": "heading",
+      "level": 2,
+      "content": "Headings",
+      "anchor": "headings",
+      "style": {
+        "align": "left"
+      }
+    },
+    {
+      "id": "p2",
+      "type": "paragraph",
+      "content": "Nova supports six levels of headings for document structure:",
+      "style": {
+        "align": "left",
+        "indent": 0
+      }
+    },
+    {
+      "id": "h3-demo",
+      "type": "heading",
+      "level": 3,
+      "content": "This is a Level 3 Heading",
+      "anchor": "heading-3",
+      "style": {
+        "align": "left"
+      }
+    },
+    {
+      "id": "h4-demo",
+      "type": "heading",
+      "level": 4,
+      "content": "This is a Level 4 Heading",
+      "anchor": "heading-4",
+      "style": {
+        "align": "left"
+      }
+    },
+    {
+      "id": "h5-demo",
+      "type": "heading",
+      "level": 5,
+      "content": "This is a Level 5 Heading",
+      "anchor": "heading-5",
+      "style": {
+        "align": "left"
+      }
+    },
+    {
+      "id": "h6-demo",
+      "type": "heading",
+      "level": 6,
+      "content": "This is a Level 6 Heading",
+      "anchor": "heading-6",
+      "style": {
+        "align": "left"
+      }
+    },
+    {
+      "id": "div1",
+      "type": "divider",
+      "style": "solid"
+    },
+    {
+      "id": "h2-text",
+      "type": "heading",
+      "level": 2,
+      "content": "Rich Text Formatting",
+      "anchor": "rich-text",
+      "style": {
+        "align": "left"
+      }
+    },
+    {
+      "id": "p-rich",
+      "type": "paragraph",
+      "content": [
+        {
+          "text": "Nova supports ",
+          "bold": false
+        },
+        {
+          "text": "bold text",
+          "bold": true
+        },
+        {
+          "text": ", ",
+          "bold": false
+        },
+        {
+          "text": "italic text",
+          "italic": true
+        },
+        {
+          "text": ", ",
+          "italic": false
+        },
+        {
+          "text": "underlined text",
+          "underline": true
+        },
+        {
+          "text": ", ",
+          "underline": false
+        },
+        {
+          "text": "strikethrough text",
+          "strikethrough": true
+        },
+        {
+          "text": ", and ",
+          "strikethrough": false
+        },
+        {
+          "text": "inline code",
+          "code": true
+        },
+        {
+          "text": ". You can also add ",
+          "code": false
+        },
+        {
+          "text": "hyperlinks",
+          "link": {
+            "href": "https://example.com",
+            "title": "Example Link"
+          }
+        },
+        {
+          "text": " to your content.",
+          "link": null
+        }
+      ],
+      "style": {
+        "align": "left",
+        "indent": 0
+      }
+    },
+    {
+      "id": "h2-lists",
+      "type": "heading",
+      "level": 2,
+      "content": "Lists",
+      "anchor": "lists",
+      "style": {
+        "align": "left"
+      }
+    },
+    {
+      "id": "h3-unordered",
+      "type": "heading",
+      "level": 3,
+      "content": "Unordered Lists",
+      "anchor": "unordered-lists",
+      "style": {
+        "align": "left"
+      }
+    },
+    {
+      "id": "list-unordered",
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        {
+          "content": "First item"
+        },
+        {
+          "content": "Second item"
+        },
+        {
+          "content": "Third item with nested list",
+          "children": [
+            {
+              "type": "list",
+              "listType": "unordered",
+              "items": [
+                { "content": "Nested item 1" },
+                { "content": "Nested item 2" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "h3-ordered",
+      "type": "heading",
+      "level": 3,
+      "content": "Ordered Lists",
+      "anchor": "ordered-lists",
+      "style": {
+        "align": "left"
+      }
+    },
+    {
+      "id": "list-ordered",
+      "type": "list",
+      "listType": "ordered",
+      "items": [
+        {
+          "content": "First step"
+        },
+        {
+          "content": "Second step"
+        },
+        {
+          "content": "Third step"
+        }
+      ]
+    },
+    {
+      "id": "h3-checklist",
+      "type": "heading",
+      "level": 3,
+      "content": "Checklist",
+      "anchor": "checklist",
+      "style": {
+        "align": "left"
+      }
+    },
+    {
+      "id": "list-checklist",
+      "type": "list",
+      "listType": "checklist",
+      "items": [
+        { "content": "Completed task", "checked": true },
+        { "content": "Another completed task", "checked": true },
+        { "content": "Pending task", "checked": false },
+        { "content": "Another pending task", "checked": false }
+      ]
+    },
+    {
+      "id": "div2",
+      "type": "divider",
+      "style": "dashed"
+    },
+    {
+      "id": "h2-callouts",
+      "type": "heading",
+      "level": 2,
+      "content": "Callouts",
+      "anchor": "callouts",
+      "style": {
+        "align": "left"
+      }
+    },
+    {
+      "id": "p-callouts",
+      "type": "paragraph",
+      "content": "Callouts help highlight important information with visual emphasis:",
+      "style": {
+        "align": "left",
+        "indent": 0
+      }
+    },
+    {
+      "id": "callout-info",
+      "type": "callout",
+      "calloutType": "info",
+      "title": "Information",
+      "icon": "💡",
+      "content": "This is an informational callout. Use it for helpful tips and general information."
+    },
+    {
+      "id": "callout-success",
+      "type": "callout",
+      "calloutType": "success",
+      "title": "Success",
+      "icon": "✅",
+      "content": "This is a success callout. Use it to highlight positive outcomes or completed actions."
+    },
+    {
+      "id": "callout-warning",
+      "type": "callout",
+      "calloutType": "warning",
+      "title": "Warning",
+      "icon": "⚠️",
+      "content": "This is a warning callout. Use it for cautionary information or important notices."
+    },
+    {
+      "id": "callout-error",
+      "type": "callout",
+      "calloutType": "error",
+      "title": "Error",
+      "icon": "❌",
+      "content": "This is an error callout. Use it for critical information or error messages."
+    },
+    {
+      "id": "callout-note",
+      "type": "callout",
+      "calloutType": "note",
+      "title": "Note",
+      "icon": "📝",
+      "content": "This is a note callout. Use it for general notes or side comments."
+    },
+    {
+      "id": "h2-code",
+      "type": "heading",
+      "level": 2,
+      "content": "Code Blocks",
+      "anchor": "code-blocks",
+      "style": {
+        "align": "left"
+      }
+    },
+    {
+      "id": "p-code",
+      "type": "paragraph",
+      "content": "Nova supports syntax-highlighted code blocks with line numbers and highlighting:",
+      "style": {
+        "align": "left",
+        "indent": 0
+      }
+    },
+    {
+      "id": "code-python",
+      "type": "code",
+      "language": "python",
+      "code": "def calculate_fibonacci(n):\n    \"\"\"Calculate the nth Fibonacci number.\"\"\"\n    if n <= 1:\n        return n\n    return calculate_fibonacci(n-1) + calculate_fibonacci(n-2)\n\n# Example usage\nresult = calculate_fibonacci(10)\nprint(f\"The 10th Fibonacci number is: {result}\")",
+      "caption": "fibonacci.py",
+      "showLineNumbers": true,
+      "highlightLines": [2, 8]
+    },
+    {
+      "id": "code-javascript",
+      "type": "code",
+      "language": "javascript",
+      "code": "// Fetch data from an API\nasync function fetchUserData(userId) {\n  try {\n    const response = await fetch(`/api/users/${userId}`);\n    const data = await response.json();\n    return data;\n  } catch (error) {\n    console.error('Error fetching user data:', error);\n    throw error;\n  }\n}",
+      "caption": "api.js",
+      "showLineNumbers": true,
+      "highlightLines": []
+    },
+    {
+      "id": "h2-tables",
+      "type": "heading",
+      "level": 2,
+      "content": "Tables",
+      "anchor": "tables",
+      "style": {
+        "align": "left"
+      }
+    },
+    {
+      "id": "p-tables",
+      "type": "paragraph",
+      "content": "Tables maintain their structure and remain easy for AI systems to parse:",
+      "style": {
+        "align": "left",
+        "indent": 0
+      }
+    },
+    {
+      "id": "table-api",
+      "type": "table",
+      "caption": "Table 1: API Endpoints",
+      "headers": ["Method", "Endpoint", "Description", "Auth Required"],
+      "rows": [
+        ["GET", "/api/docs", "List all documents", "Yes"],
+        ["POST", "/api/docs", "Create new document", "Yes"],
+        ["GET", "/api/docs/:id", "Get specific document", "No"],
+        ["PUT", "/api/docs/:id", "Update document", "Yes"],
+        ["DELETE", "/api/docs/:id", "Delete document", "Yes"]
+      ],
+      "style": {
+        "headerStyle": "both",
+        "stripes": true,
+        "borders": "all"
+      }
+    },
+    {
+      "id": "h2-quotes",
+      "type": "heading",
+      "level": 2,
+      "content": "Quotes",
+      "anchor": "quotes",
+      "style": {
+        "align": "left"
+      }
+    },
+    {
+      "id": "quote1",
+      "type": "quote",
+      "content": "The best way to predict the future is to invent it.",
+      "author": "Alan Kay",
+      "source": "Stanford University, 1971"
+    },
+    {
+      "id": "quote2",
+      "type": "quote",
+      "content": "Design is not just what it looks like and feels like. Design is how it works.",
+      "author": "Steve Jobs",
+      "source": "New York Times, 2003"
+    },
+    {
+      "id": "h2-images",
+      "type": "heading",
+      "level": 2,
+      "content": "Images",
+      "anchor": "images",
+      "style": {
+        "align": "left"
+      }
+    },
+    {
+      "id": "p-images",
+      "type": "paragraph",
+      "content": "Images can include captions and alt text for accessibility:",
+      "style": {
+        "align": "left",
+        "indent": 0
+      }
+    },
+    {
+      "id": "img1",
+      "type": "image",
+      "src": "https://via.placeholder.com/800x400/0066CC/FFFFFF?text=Nova+Document+Format",
+      "alt": "Nova logo and branding placeholder",
+      "caption": "Figure 1: Nova Document Format - Beautiful, Editable, AI-Ready",
+      "width": "100%",
+      "style": {
+        "align": "center",
+        "rounded": false
+      }
+    },
+    {
+      "id": "div3",
+      "type": "divider",
+      "style": "thick"
+    },
+    {
+      "id": "h2-layouts",
+      "type": "heading",
+      "level": 2,
+      "content": "Column Layouts",
+      "anchor": "layouts",
+      "style": {
+        "align": "left"
+      }
+    },
+    {
+      "id": "p-layouts",
+      "type": "paragraph",
+      "content": "Create multi-column layouts for richer document designs:",
+      "style": {
+        "align": "left",
+        "indent": 0
+      }
+    },
+    {
+      "id": "layout-2col",
+      "type": "layout",
+      "columns": [
+        {
+          "width": "1fr",
+          "content": [
+            {
+              "id": "layout-h3-1",
+              "type": "heading",
+              "level": 3,
+              "content": "Left Column",
+              "style": {
+                "align": "left"
+              }
+            },
+            {
+              "id": "layout-p1",
+              "type": "paragraph",
+              "content": "This content appears in the left column. Column layouts are great for creating side-by-side comparisons, feature lists, or magazine-style layouts.",
+              "style": {
+                "align": "left",
+                "indent": 0
+              }
+            },
+            {
+              "id": "layout-list1",
+              "type": "list",
+              "listType": "unordered",
+              "items": [
+                { "content": "Feature A" },
+                { "content": "Feature B" },
+                { "content": "Feature C" }
+              ]
+            }
+          ]
+        },
+        {
+          "width": "1fr",
+          "content": [
+            {
+              "id": "layout-h3-2",
+              "type": "heading",
+              "level": 3,
+              "content": "Right Column",
+              "style": {
+                "align": "left"
+              }
+            },
+            {
+              "id": "layout-p2",
+              "type": "paragraph",
+              "content": "This content appears in the right column. The layout system supports flexible sizing using fractional units, percentages, or fixed pixels.",
+              "style": {
+                "align": "left",
+                "indent": 0
+              }
+            },
+            {
+              "id": "layout-list2",
+              "type": "list",
+              "listType": "unordered",
+              "items": [
+                { "content": "Benefit 1" },
+                { "content": "Benefit 2" },
+                { "content": "Benefit 3" }
+              ]
+            }
+          ]
+        }
+      ],
+      "gap": 2
+    },
+    {
+      "id": "h2-embeds",
+      "type": "heading",
+      "level": 2,
+      "content": "Embeds",
+      "anchor": "embeds",
+      "style": {
+        "align": "left"
+      }
+    },
+    {
+      "id": "p-embeds",
+      "type": "paragraph",
+      "content": "Embed videos, audio, tweets, and other interactive content:",
+      "style": {
+        "align": "left",
+        "indent": 0
+      }
+    },
+    {
+      "id": "embed-video",
+      "type": "embed",
+      "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "embedType": "video",
+      "caption": "Example Video Embed",
+      "aspectRatio": "16:9"
+    },
+    {
+      "id": "div4",
+      "type": "divider",
+      "style": "dotted"
+    },
+    {
+      "id": "h2-conclusion",
+      "type": "heading",
+      "level": 2,
+      "content": "Conclusion",
+      "anchor": "conclusion",
+      "style": {
+        "align": "left"
+      }
+    },
+    {
+      "id": "p-conclusion",
+      "type": "paragraph",
+      "content": [
+        {
+          "text": "This sample document demonstrates the power and flexibility of the Nova format. With its semantic structure, beautiful presentation, and AI-ready design, Nova is the perfect format for modern documents. Visit ",
+          "bold": false
+        },
+        {
+          "text": "nova-docs.com",
+          "link": {
+            "href": "https://nova-docs.com",
+            "title": "Nova Documentation"
+          }
+        },
+        {
+          "text": " to learn more!",
+          "link": null
+        }
+      ],
+      "style": {
+        "align": "left",
+        "indent": 0
+      }
+    },
+    {
+      "id": "callout-final",
+      "type": "callout",
+      "calloutType": "success",
+      "title": "Ready to Create?",
+      "icon": "🚀",
+      "content": "Start creating beautiful, AI-ready documents with Nova today. The format is open source and free to use."
+    }
+  ]
+}
