@@ -1,11 +1,40 @@
-# Nova Document Format Specification
+# Nova - Modern Document Format for the AI Age
 
 **Version:** 1.0.0
-**Status:** Draft
+**Status:** Active Development
 
 ## Overview
 
 Nova is a modern document format designed to replace PDF for the AI age. It combines the beauty of PDF, the editability of Notion, and the semantic structure that AI can parse perfectly.
+
+This repository contains:
+- **Format Specification** (`/schema`) - JSON schema for the Nova document format
+- **Frontend** (`/frontend`) - React-based editor and renderer
+- **Backend** (`/backend`) - FastAPI REST API with SQLite database
+
+## Quick Start
+
+### Backend Setup
+
+```bash
+cd backend
+conda create -n nova python=3.11
+conda activate nova
+pip install -r requirements.txt
+uvicorn main:app --reload
+```
+
+Backend runs at `http://localhost:8000`
+
+### Frontend Setup
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Frontend runs at `http://localhost:5173`
 
 ### Key Principles
 

@@ -175,9 +175,21 @@ Replace PDF with a modern format that looks beautiful by default, is fully edita
    - PDF vs Nova comparison demo
    - HackerNews launch
 
-## Next Immediate Steps
-1. ~~Design .nova format spec~~ ✅
-2. ~~Build beautiful React renderer~~ ✅
-3. Build Python SDK for document creation
-4. Build web editor
-5. Deploy and launch on HN
+
+
+
+
+
+
+  6. Open Format Superpowers
+
+  Since it's JSON, expose this:
+  - Git-friendly diffs (show what changed between versions)
+  - Direct schema editor for power users
+  - Import from JSON APIs directly into document
+  - Export to multiple formats (the JSON makes this trivial)
+
+
+
+
+
